@@ -53,7 +53,7 @@ public class ServerRequests {
                 }
         ){
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
+            protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String,String> map=new HashMap<>();
                 map.put("drv_fireb_id",driverFirebaseId);
                 map.put("drv_fcm_id",driverFcmId);
@@ -88,7 +88,7 @@ public class ServerRequests {
                 }
         ){
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
+            protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String,String> map=new HashMap<>();
                 map.put("latitude", String.valueOf(latitude));
                 map.put("longitude", String.valueOf(longitude));
@@ -121,7 +121,7 @@ public class ServerRequests {
                 }
         ){
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
+            protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String,String> map=new HashMap<>();
                 map.put("fcm_token", String.valueOf(fcmToken));
                 return map;
