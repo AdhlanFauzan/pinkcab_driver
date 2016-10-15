@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "257268779600",
+    "firebase_url": "https://pinkcab-driver.firebaseio.com",
+    "project_id": "pinkcab-driver",
+    "storage_bucket": "pinkcab-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257268779600:android:46c988af84d7cc37",
+        "android_client_info": {
+          "package_name": "com.pinkcabs.pinkcab_driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "257268779600-oatb8srvdj87qu1gvv4t7maumoco5luv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pinkcabs.pinkcab_driver",
+            "certificate_hash": "FC9A3C253AA75123D3FA3BA0163AD93DE4874B53"
+          }
+        },
+        {
+          "client_id": "257268779600-u1g2usc5uj3i8d3rs70pe0ci1tm0v7jc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTNrpKfWJYy7BHUY0E7kyw1-EX9_RSCb0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "257268779600-u1g2usc5uj3i8d3rs70pe0ci1tm0v7jc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
