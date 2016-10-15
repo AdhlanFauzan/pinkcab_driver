@@ -25,6 +25,7 @@ public class ServerRequests {
     private String NEW_DRIVER="http://198.199.120.41/pinkcabs/v1/register/driver";
     private String UPDATE_LOCATION="http://198.199.120.41/pinkcabs/v1/driver/location/_drv_fireb_id_";
     private String UPDATE_FCM_TOKEN="http://198.199.120.41/pinkcabs/v1/driver/_drv_fireb_id_/update-token";
+
     public void setCallback(ResponseCallback callback) {
         this.callback = callback;
     }
