@@ -30,7 +30,7 @@ public class ServerRequests {
         this.callback = callback;
     }
 
-    void newDriver(Context ctx, final String driverFirebaseId, final String driverFcmId, final double latitude, final double longitude) {
+    void newDriver(Context ctx, final String driverFirebaseId, final String driverFcmId) {
         StringRequest request=new StringRequest(
                 Request.Method.POST,
                 NEW_DRIVER,
@@ -57,8 +57,6 @@ public class ServerRequests {
                 HashMap<String,String> map=new HashMap<>();
                 map.put("drv_fireb_id",driverFirebaseId);
                 map.put("drv_fcm_id",driverFcmId);
-                map.put("latitude", String.valueOf(latitude));
-                map.put("longitude", String.valueOf(longitude));
                 return map;
             }
         };
