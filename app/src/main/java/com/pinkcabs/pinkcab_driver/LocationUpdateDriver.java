@@ -9,12 +9,14 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 
-public class LocationUpdate extends Service {
+public class LocationUpdateDriver extends Service {
+    private static final String TAG = "LocationUpdateDriver";
     private LocationManager manager;
     private LocationListener listener;
 
-    public LocationUpdate() {
+    public LocationUpdateDriver() {
     }
 
     @Override
@@ -32,7 +34,8 @@ public class LocationUpdate extends Service {
             public void onLocationChanged(Location location) {
                 ServerRequests requests = new ServerRequests();
                 //pending
-//                requests.updateLocation(getApplicationContext(), /*user.getUid()*/,
+//                Log.d(TAG, "onLocationChanged: "+location.getLatitude());
+//                requests.updateLocation(getApplicationContext(), /*driver.getUid()*/,
 //                        location.getLatitude(), location.getLongitude());
             }
 
@@ -65,7 +68,7 @@ public class LocationUpdate extends Service {
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
         }
-        manager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 60 * 1000, 0, listener);
+        manager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 20 * 1000, 0, listener);
         return START_STICKY;
     }
 }
