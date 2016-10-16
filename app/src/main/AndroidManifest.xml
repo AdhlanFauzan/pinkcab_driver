@@ -50,6 +50,10 @@
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
             </intent-filter>
         </service>
+        <service
+            android:name=".LocationUpdateDriver"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
