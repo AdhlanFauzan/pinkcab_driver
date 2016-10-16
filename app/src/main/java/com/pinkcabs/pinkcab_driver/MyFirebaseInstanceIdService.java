@@ -24,5 +24,8 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
         SharedPreferences.Editor editor=preferences.edit();
         editor.putString(FCM_TOKEN_PREF_KEY,token);
         editor.apply();
+        //pending
+        //if driver id null then don't save
+        //new ServerRequests().updateFcmToken(this,,token);
     }
 }
