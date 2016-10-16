@@ -6,6 +6,8 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -25,7 +27,7 @@ public class ServerRequests {
     private String NEW_DRIVER="http://198.199.120.41/pinkcabs/v1/register/driver";
     private String UPDATE_LOCATION="http://198.199.120.41/pinkcabs/v1/driver/location/_drv_fireb_id_";
     private String UPDATE_FCM_TOKEN="http://198.199.120.41/pinkcabs/v1/driver/_drv_fireb_id_/update-token";
-
+    private String GET_LOCATION="http://198.199.120.41/pinkcabs/v1/location/user/_FID_";
     public void setCallback(ResponseCallback callback) {
         this.callback = callback;
     }
@@ -54,7 +56,7 @@ public class ServerRequests {
         ){
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                HashMap<String,String> map=new HashMap<>();
+                Map<String,String> map=new HashMap<>();
                 map.put("drv_fireb_id",driverFirebaseId);
                 map.put("drv_fcm_id",driverFcmId);
                 return map;
@@ -63,6 +65,26 @@ public class ServerRequests {
         Volley.newRequestQueue(ctx).add(request);
     }
 
+    void getUserLocationByFbId(Context ctx, String userFId) {
+        JsonObjectRequest request=new JsonObjectRequest(
+                Request.Method.PUT,
+                GET_LOCATION.replace("_FID_", userFId),
+                null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        if (callback != null) callback.response(response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        if (callback!=null) callback.response(null);
+                    }
+                }
+        );
+        Volley.newRequestQueue(ctx).add(request);
+    }
     void updateLocation(Context ctx, final String driverFirebaseId, final double latitude, final double longitude) {
         StringRequest request=new StringRequest(
                 Request.Method.PUT,
