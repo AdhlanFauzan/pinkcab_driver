@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
@@ -12,6 +13,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class CheckSignInActivity extends AppCompatActivity {
     public static final int RC_SIGN_IN = 101;
 
+    private static final String TAG = "CheckSignInActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +39,10 @@ public class CheckSignInActivity extends AppCompatActivity {
         FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
         if (requestCode == RC_SIGN_IN) {
             if (resultCode == RESULT_OK) {
-//            new ServerRequests().newDriver(getApplicationContext(),user.getUid(),
-//                    PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
-//                            .getString(MyFirebaseInstanceIDService.FCM_TOKEN_PREF_KEY,""));
+                Log.d(TAG, "onActivityResult: ok res");
+            new ServerRequests().newDriver(getApplicationContext(),user.getUid(),
+                    PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
+                            .getString(MyFirebaseInstanceIDService.FCM_TOKEN_PREF_KEY,""));
                 // user is signed in!
                 Intent intent = new Intent(this, MapsActivity.class);
                 finish();
